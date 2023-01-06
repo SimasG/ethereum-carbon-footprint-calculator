@@ -1,58 +1,40 @@
-import "dotenv/config";
 import fs from "fs-extra";
-const gasUsedCsv = fs.readFileSync("data/GasUsed.csv");
-const array = gasUsedCsv.toString().split("\r");
-// console.log("array[0]:", array[0]);
-// console.log("array[1]:", array[1]);
-const array2 = array[1].split(",");
-// console.log("array2[1]:", array2[1]);
-let result = [];
-const headers = ["timestamp", "value"];
-let obj = {};
-const item1 = {
-    timestamp: "123123",
-    value: "123123123",
-};
-const item2 = {
-    timestamp: "321321",
-    value: "321321321",
-};
-result.push(item1);
-result.push(item2);
-console.log("result:", result);
-// for (let i = 1; i < array.length - 1; i++) {
+import csv from "csvtojson";
+const jsonObject = await csv()
+    .fromFile("data/GasUsed.csv")
+    .then((jsonObj) => {
+    return jsonObj;
+});
+fs.outputFileSync("data/GasUsed.json", JSON.stringify(jsonObject));
+// for (let i = 0; i < 1; i++) {
 //   let obj = {};
-// }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// for (let i = 1; i < array.length - 1; i++) {
-//   let obj = {};
-//   let str = array[i];
-//   let s = "";
-//   let flag = 0;
-//   for (let ch of str) {
-//     if (ch === '"' && flag === 0) {
-//       flag = 1;
-//     } else if (ch === '"' && flag == 1) flag = 0;
-//     if (ch === ", " && flag === 0) ch = "|";
-//     if (ch !== '"') s += ch;
+//   for (let j = 0; j < 3; j++) {
+//     if (Object.keys(jsonObject)[j] !== "Date(UTC)") {
+//       continue;
+//     }
+//     if (Object.keys(jsonObject)[j] !== "UnixTimeStamp") {
+//       // @ts-ignore
+//       obj.timestamp = Object.values(jsonObject[j]);
+//     }
+//     if (Object.keys(jsonObject)[j] !== "Value") {
+//       // @ts-ignore
+//       obj.value = Object.values(jsonObject[j]);
+//     }
+//     console.log("obj:", obj);
 //   }
-//   let properties = s.split("|");
-//   for (let j in headers) {
-//     if (properties[j].includes(",")) {
-//       obj[headers[j]] = properties[j].split(",").map((item) => item.trim());
-//     } else obj[headers[j]] = properties[j];
-//   }
+//   // let obj = {};
+//   console.log("obj:", obj);
+//   // console.log(Object.keys(jsonObject[i]));
+//   // console.log(Object.values(jsonObject[i]));
+//   // if (objKey === "Date(UTC)") {
+//   //   continue;
+//   // }
+//   // console.log("i:", i);
 //   // @ts-ignore
-//   result.push(obj);
+//   // obj["timestamp"][i] = jsonObject[i][objKey];
+//   // console.log("obj:", obj);
+//   // // @ts-ignore
+//   // console.log(jsonObject["Date(UTC)"]);
+//   // console.log(jsonObject[i][objKey]);
 // }
-// let json = JSON.stringify(result);
-// console.log("json:", json);
 //# sourceMappingURL=index.js.map
