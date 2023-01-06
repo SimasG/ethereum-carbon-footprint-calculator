@@ -21,8 +21,8 @@
   "author": "simutis <54304022+SimasG@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
     "run-index": "tsc && node ./dist/index",
-    "run-script": "tsc && node ./dist/scripts/generateData"
+    "run-script": "tsc && node ./dist/scripts/generateData",
+    "run-tx": "tsc && node ./dist/getTransactions"
   }
 }
