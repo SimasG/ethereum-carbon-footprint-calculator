@@ -32,5 +32,5 @@ export const calculateEmissionsFactor = (
   const emissionsGCO2 = dayEnergyUsedKWh * gCO2PerKWh;
   // emissionsFactor (gCO2/gas)
   const emissionsFactor = emissionsGCO2 / dayGasUsed;
-  console.log("emissionsFactor:", emissionsFactor);
+  return emissionsFactor;
 };

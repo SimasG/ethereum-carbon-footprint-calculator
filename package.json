@@ -23,6 +23,7 @@
   "scripts": {
     "run-index": "tsc && node ./dist/index",
     "generateData": "tsc && node ./dist/scripts/generateData",
-    "run-tx": "tsc && node ./dist/getTransactions"
+    "run-tx": "tsc && node ./dist/getTransactions",
+    "generateEmissionsFactorTable": "tsc && node ./dist/scripts/generateEmissionsFactorTable"
   }
 }
