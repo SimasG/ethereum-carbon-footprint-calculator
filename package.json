@@ -22,7 +22,7 @@
   "license": "MIT",
   "scripts": {
     "run-index": "tsc && node ./dist/index",
-    "run-script": "tsc && node ./dist/scripts/generateData",
+    "generateData": "tsc && node ./dist/scripts/generateData",
     "run-tx": "tsc && node ./dist/getTransactions"
   }
 }
