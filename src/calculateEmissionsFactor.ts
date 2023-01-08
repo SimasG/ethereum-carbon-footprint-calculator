@@ -26,10 +26,11 @@ export const calculateEmissionsFactor = (
 
   // total # of hashes in a day (GH)
   const dayTotalHashes = dayHashrate * 86400;
-  console.log("dayTotalHashes:", dayTotalHashes);
   // total energy used in a day (GWh)
   const dayEnergyUsedKWh = dayTotalHashes / formattedHashingEfficiency;
-  // total energy used in a day (kWh)
-  const dayEnergyUsedGWh = dayEnergyUsedKWh / (1000 * 1000);
-  console.log("dayEnergyUsedGWh:", dayEnergyUsedGWh);
+  // total emissions in a day (gCO2)
+  const emissionsGCO2 = dayEnergyUsedKWh * gCO2PerKWh;
+  // emissionsFactor (gCO2/gas)
+  const emissionsFactor = emissionsGCO2 / dayGasUsed;
+  console.log("emissionsFactor:", emissionsFactor);
 };
