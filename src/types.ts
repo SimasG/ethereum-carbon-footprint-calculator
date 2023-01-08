@@ -14,3 +14,9 @@ export type hashrateItem = {
   UnixTimeStamp: string;
   Value: string;
 };
+
+export type emissionsFactorItem = {
+  "Date(UTC)": string;
+  UnixTimeStamp: string;
+  emissionsFactor: string;
+};
