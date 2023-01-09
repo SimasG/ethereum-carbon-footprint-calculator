@@ -1,12 +1,11 @@
 {
   "dependencies": {
-    "@types/csvtojson": "^2.0.0",
-    "convert-csv-to-json": "^1.5.0",
     "csvtojson": "^2.0.10",
     "dotenv": "^16.0.3",
     "fs-extra": "^11.1.0"
   },
   "devDependencies": {
+    "@types/csvtojson": "^2.0.0",
     "@types/express": "^4.17.15",
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.11.18",

@@ -10,7 +10,7 @@ let timestamp = "";
 let timestamps = [];
 let emissionsFactor = "";
 let emissionsFactors = [];
-// get an array of the tx timestamps from the address
+// getting an array of the tx timestamps from the address
 const getTimestamps = (tx) => {
     for (let j = 1; j < emissionsFactorsObj.length; j++) {
         if (tx.timeStamp < emissionsFactorsObj[j].UnixTimeStamp &&
@@ -21,7 +21,7 @@ const getTimestamps = (tx) => {
     }
     return timestamps;
 };
-// get an array of emissions factors from timestamps
+// getting an array of emissions factors from timestamps
 const getEmissionsFactors = (timestamp) => {
     for (let k = 0; k < emissionsFactorsObj.length; k++) {
         if (emissionsFactorsObj[k].UnixTimeStamp === timestamp) {
@@ -31,8 +31,8 @@ const getEmissionsFactors = (timestamp) => {
     }
     return emissionsFactors;
 };
-// calculate total address emissions
-const calculateEmissions = async (addr) => {
+// calculating total address emissions
+export const calculateEmissions = async (addr) => {
     const transactions = await getTransactions(addr);
     let txEmissions = 0;
     let totalEmissions = 0;
@@ -51,9 +51,7 @@ const calculateEmissions = async (addr) => {
     const totalEmissionsKg = totalEmissions / 1000;
     return totalEmissionsKg;
 };
-const emissions = await calculateEmissions("0x6B3595068778DD592e39A122f4f5a5cF09C90fE2");
 // 0x619353127678b95C023530df08BCB638870cFDdA -> mine
 // 0xF417ACe7b13c0ef4fcb5548390a450A4B75D3eB3 -> woj.eth
 // 0x6B3595068778DD592e39A122f4f5a5cF09C90fE2 -> sushi
-console.log("emissions:", emissions);
 //# sourceMappingURL=calculateEmissions.js.map
